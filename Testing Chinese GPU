@@ -1,0 +1,447 @@
+tiffanysoe@Tiffanys-MacBook-Air ~ % ssh -p 22 ubuntu@154.81.14.22
+ubuntu@154.81.14.22's password: 
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-100-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+  System information as of Mon Sep  1 05:06:22 PM CST 2025
+
+  System load:  5.92236328125       Processes:                2274
+  Usage of /:   79.5% of 439.89GB   Users logged in:          1
+  Memory usage: 3%                  IPv4 address for docker0: 172.17.0.1
+  Swap usage:   0%                  IPv4 address for net1:    10.7.20.142
+  Temperature:  45.0 C
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+84 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+5 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Last login: Mon Sep  1 17:00:37 2025 from 202.83.241.126
+(base) ubuntu@10-7-20-142:~$ curl http://localhost:8000/v1/completions\-H "Content-Type: application/json"\
+> -d'{"model":"/models/Llama-3.3-70B-Instruct/",
+> "prompt":"What is an LLM?",
+> "max_tokens":256}'
+{"detail":"Not Found"}curl: (3) URL rejected: Malformed input to a URL function
+curl: (3) URL rejected: Malformed input to a URL function
+curl: (3) URL rejected: Malformed input to a URL function
+(base) ubuntu@10-7-20-142:~$ curl http://localhost:8000/v1/completions \  -H "Content-Type: application/json" \
+> -d'{"model":"/models/Llama-3.3-70B-Instruct/",
+> "prompt":"What is an LLM?",
+> "max_tokens":256}'
+-bash: -d{"model":"/models/Llama-3.3-70B-Instruct/",
+> "prompt":"What is an LLM?",
+> "max_tokens":256}: No such file or directory
+(base) ubuntu@10-7-20-142:~$ curl -X POST http://localhost:8000/v1/chat/completions \
+> -H "Content-Type: application/json " \
+> -d '{"model":"/models/Llama-3.3-70B-Instruct",
+> "messages":[{"role":"user","content":"What is an LLM?"}],"max tokens":256}'
+{"detail":"Unsupported Media Type: Only 'application/json' is allowed"}(base) ubuntu@10-curl -X POST http://localhost:8000/v1/chat/completions \ompletions \
+  -H "Content-Type: application/json" \
+  -d '{"model":"/models/Llama-3.3-70B-Instruct/","messages":[{"role":"user","content":"What is an LLM?"}],"max_tokens":256}'
+{"id":"chatcmpl-8e7465baa1094c1e806e03076bf8a8e4","object":"chat.completion","created":1756718022,"model":"/models/Llama-3.3-70B-Instruct/","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":"An LLM, or Large Language Model, is a type of artificial intelligence (AI) designed to process and understand human language. It's a computer program that uses complex algorithms and statistical models to learn patterns and relationships in language data.\n\nLLMs are trained on vast amounts of text data, which can include books, articles, research papers, websites, and more. This training enables them to generate human-like text, answer questions, translate languages, and even converse with humans.\n\nSome key characteristics of LLMs include:\n\n1. **Language understanding**: LLMs can comprehend the meaning and context of text, including nuances like idioms, metaphors, and figurative language.\n2. **Text generation**: LLMs can create coherent and natural-sounding text, often indistinguishable from human-written content.\n3. **Knowledge retrieval**: LLMs can access and retrieve information from their vast training data, allowing them to answer questions and provide information on a wide range of topics.\n4. **Conversational capabilities**: LLMs can engage in conversation, using context and understanding to respond to questions and statements.\n\nLLMs have many potential applications, such as:\n\n1. **Virtual assistants**: LLMs can power virtual assistants like chatbots, voice assistants, and","tool_calls":[]},"logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":41,"total_tokens":297,"completion_tokens":256,"prompt_tokens_details":null},"prompt_logprobs":null}(base) ubuntu@10-7-20-142:~$ curl -w "Time: %{time_totacurl -w "Time: %{time_total}s\n" -X POST http://localhost:8000/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{"model":"/models/Llama-3.3-70B-Instruct/","messages":[{"role":"user","content":"What is an LLM?"}],"max_tokens":256}'
+{"id":"chatcmpl-f9eb39376c334252998d8aa720f12ffd","object":"chat.completion","created":1756718074,"model":"/models/Llama-3.3-70B-Instruct/","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":"An LLM, or Large Language Model, is a type of artificial intelligence (AI) designed to process and understand human language. It's a computer program that uses complex algorithms and massive amounts of data to learn patterns and relationships in language, allowing it to generate text, answer questions, and even converse with humans.\n\nLLMs are trained on vast amounts of text data, which can include books, articles, research papers, and even online conversations. This training enables them to recognize and mimic the patterns, structures, and nuances of language, including grammar, syntax, and semantics.\n\nSome key features of LLMs include:\n\n1. **Language understanding**: LLMs can comprehend and interpret human language, including context, tone, and intent.\n2. **Text generation**: LLMs can create coherent and natural-sounding text, often indistinguishable from human-written content.\n3. **Conversational capabilities**: LLMs can engage in dialogue, responding to questions and statements in a way that simulates human-like conversation.\n4. **Knowledge retrieval**: LLMs can access and retrieve information from their vast training data, providing answers to a wide range of questions.\n\nLLMs have many potential applications, such as:\n\n1. **Virtual assistants**: LLMs can power","tool_calls":[]},"logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":41,"total_tokens":297,"completion_tokens":256,"prompt_tokens_details":null},"prompt_logprobs":null}Time: 9.455849s
+(base) ubuntu@10-7-20-142:~$ mx-smi
+mx-smi  version: 2.1.10
+
+=================== MetaX System Management Interface Log ===================
+Timestamp                                         : Mon Sep  1 17:32:54 2025
+
+Attached GPUs                                     : 8
++---------------------------------------------------------------------------------+
+| MX-SMI 2.1.10                       Kernel Mode Driver Version: 2.11.11         |
+| MACA Version: 2.32.0.6              BIOS Version: 1.20.3.0                      |
+|------------------------------------+---------------------+----------------------+
+| GPU         NAME                   | Bus-id              | GPU-Util             |
+| Temp        Pwr:Usage/Cap          | Memory-Usage        |                      |
+|====================================+=====================+======================|
+| 0           MetaX C500             | 0000:08:00.0        | 0%                   |
+| 41C         73W / 350W             | 56359/65536 MiB     |                      |
++------------------------------------+---------------------+----------------------+
+| 1           MetaX C500             | 0000:09:00.0        | 0%                   |
+| 40C         69W / 350W             | 56679/65536 MiB     |                      |
++------------------------------------+---------------------+----------------------+
+| 2           MetaX C500             | 0000:0e:00.0        | 0%                   |
+| 40C         70W / 350W             | 56679/65536 MiB     |                      |
++------------------------------------+---------------------+----------------------+
+| 3           MetaX C500             | 0000:11:00.0        | 0%                   |
+| 41C         80W / 350W             | 56359/65536 MiB     |                      |
++------------------------------------+---------------------+----------------------+
+| 4           MetaX C500             | 0000:32:00.0        | 0%                   |
+| 39C         68W / 350W             | 56359/65536 MiB     |                      |
++------------------------------------+---------------------+----------------------+
+| 5           MetaX C500             | 0000:38:00.0        | 0%                   |
+| 40C         71W / 350W             | 56679/65536 MiB     |                      |
++------------------------------------+---------------------+----------------------+
+| 6           MetaX C500             | 0000:3b:00.0        | 0%                   |
+| 40C         70W / 350W             | 56679/65536 MiB     |                      |
++------------------------------------+---------------------+----------------------+
+| 7           MetaX C500             | 0000:3c:00.0        | 0%                   |
+| 40C         71W / 350W             | 56359/65536 MiB     |                      |
++------------------------------------+---------------------+----------------------+
+
++---------------------------------------------------------------------------------+
+| Process:                                                                        |
+|  GPU                    PID         Process Name                 GPU Memory     |
+|                                                                  Usage(MiB)     |
+|=================================================================================|
+|  0                  3062805         python3.10                   55488          |
+|  1                  3062824         python3.10                   55808          |
+|  2                  3062845         python3.10                   55808          |
+|  3                  3062871         python3.10                   55488          |
+|  4                  3062895         python3.10                   55488          |
+|  5                  3062919         python3.10                   55808          |
+|  6                  3062946         python3.10                   55808          |
+|  7                  3062972         python3.10                   55488          |
++---------------------------------------------------------------------------------+
+
+End of Log
+(base) ubuntu@10-7-20-142:~$ mx-smi --query-compute-apps=pid,process_name,gpu_uuid,used_memory --format=csv
+PARSE ERROR: Argument: --query-compute-apps=pid,process_name,gpu_uuid,used_memory
+             Couldn't find match for argument
+
+Brief USAGE: 
+   mx-smi  [-hLrsv] [--show-ap-usage] [--show-apusage-toggle]
+           [--show-board-power] [--show-clk-tr] [--show-core-usage]
+           [--show-eeprom] [--show-hbm-bandwidth] [--show-memory]
+           [--show-metaxlink-bandwidth] [--show-pcie-bandwidth]
+           [--show-pcie-slot] [--show-pmbus-power] [--show-power-state]
+           [--show-pptable-version] [--show-sn] [--show-temperature]
+           [--show-usage] [--show-vbios] [--show-version] [--show-vpu]
+           [--set-pci-speed <[1, 5]>|--show-pcie] [--show-all-process|
+           --show-process] [--flr|--vfflr] [--set-ecc-state <[0, 1]>|
+           --show-ecc-state] [-U <bin>|-u <bin>] [--set-dpm-max <DPM IP,DPM
+           level>|--show-dpm-max] [--set-power-mode <[0, 1]>|
+           --show-power-mode] [--set-fw-loglevel <ipName,loglevel>|
+           --show-fw-loglevel] [-d <dieId>] [-i <deviceId>] [-l <ms>] [-o
+           <output.csv>] [-t <[60, 36000]>] [--dump-vbios <>]
+           [--set-apusage-toggle <[0, 1]>] [--show-clocks <all|clock IP>]
+           [--show-dpm <all|cur>] [--unlock <unlock key>] [subsystem]
+
+For complete USAGE and HELP type: 
+   mx-smi --help
+
+(base) ubuntu@10-7-20-142:~$ mx-smi --help
+
+USAGE: 
+
+   mx-smi  [-hLrsv] [--show-ap-usage] [--show-apusage-toggle]
+           [--show-board-power] [--show-clk-tr] [--show-core-usage]
+           [--show-eeprom] [--show-hbm-bandwidth] [--show-memory]
+           [--show-metaxlink-bandwidth] [--show-pcie-bandwidth]
+           [--show-pcie-slot] [--show-pmbus-power] [--show-power-state]
+           [--show-pptable-version] [--show-sn] [--show-temperature]
+           [--show-usage] [--show-vbios] [--show-version] [--show-vpu]
+           [--set-pci-speed <[1, 5]>|--show-pcie] [--show-all-process|
+           --show-process] [--flr|--vfflr] [--set-ecc-state <[0, 1]>|
+           --show-ecc-state] [-U <bin>|-u <bin>] [--set-dpm-max <DPM IP,DPM
+           level>|--show-dpm-max] [--set-power-mode <[0, 1]>|
+           --show-power-mode] [--set-fw-loglevel <ipName,loglevel>|
+           --show-fw-loglevel] [-d <dieId>] [-i <deviceId>] [-l <ms>] [-o
+           <output.csv>] [-t <[60, 36000]>] [--dump-vbios <>]
+           [--set-apusage-toggle <[0, 1]>] [--show-clocks <all|clock IP>]
+           [--show-dpm <all|cur>] [--unlock <unlock key>] [subsystem]
+
+
+Where: 
+
+   --show-temperature
+     Display temperature
+
+   --show-pmbus-power
+     Display pmbus voltage, current and power
+
+   --show-board-power
+     Display board voltage, current and power
+
+   --show-sn
+     Display chip serial
+
+   --show-memory
+     Display memory information in KBytes
+
+   --show-eeprom
+     Display eeprom information
+
+   --show-version
+     Display maca, bios, driver, firmware version
+
+   --show-usage
+     Display VPUE,VPUD,GPU usage
+
+   --show-power-state
+     Display power state
+
+   -L,  --list
+     List all devices discovered on the host
+
+   --show-hbm-bandwidth
+     Display hbm bandwidth in MBytes/s
+
+   --show-vpu
+     Display encoder and decoder codec status
+
+   --show-pcie-bandwidth
+     Display pcie bandwidth in MBytes/s
+
+   -s,  --summary
+     Display device summary information
+
+   --show-core-usage
+     Display single core usage
+
+   --show-vbios
+     Display vbios information
+
+   --show-pcie-slot
+     Display the device pcie slot
+
+   --show-clk-tr
+     Display current clocks throttling reason(only support C-class device)
+
+   -o <output.csv>,  --output <output.csv>
+     Write show commands' data to file in csv format 
+     supported show commands:
+         show-temperature, show-board-power, show-version, show-usage,
+     show-memory, show-pcie, show-dpm cur, show-pmbus-power, show-vpu
+
+   --show-dpm <all|cur>
+     Display DPM performance levels
+
+   -l <ms>,  --loop <ms>
+     Display until Ctrl+C at specified millisecond interval
+
+   -i <deviceId>,  --index <deviceId>
+     Target specific devices. Multiple devices can be combined as '0,1,5',
+     '0-2' '0-4,6', all
+
+   -d <dieId>,  --die <dieId>
+     Target specific die index.
+
+   --dump-vbios <>
+     Dump vbios data
+         Usage: mx-smi --dump-vbios ./mxvbios-xxx.bin -t 90
+                mx-smi --dump-vbios ./mxvbios-xxx.bin # default time limit
+     is 60s
+
+   -t <[60, 36000]>,  --timelimit <[60, 36000]>
+     Time limit for upgrade or dump command, unit: second
+
+   --show-clocks <all|clock IP>
+     Display target IPs' clocks
+        clock IP: csc, xcore, mc0, mc1, vpue, vpud, soc, dnoc, ccx
+            multiple IPs can be combined with comma
+
+   --set-apusage-toggle <[0, 1]>
+     Enable/disable collecting xcore ap usage
+            state: 0(disable) 1(enable)
+     Note: The device must be specified by -i, --index.
+
+   -r,  --reset
+     Warm reset
+
+   --show-metaxlink-bandwidth
+     Display MetaXLink bandwidth in MBytes/s
+
+   --show-pptable-version
+     Display pptable version
+
+   --show-ap-usage
+     Show xcore ap usage
+
+   --show-apusage-toggle
+     Show xcore ap usage toggle states
+
+   --unlock <unlock key>
+     Set unlock key
+
+   Either of:
+      --show-pcie
+        Display pcie speed and width
+
+      --set-pci-speed <[1, 5]>
+        Set pci speed by changing pci generation(only support N-class
+        device)
+
+   Either of:
+      --show-process
+        Show process currently running
+
+      --show-all-process
+        show all process opening device file
+
+   Either of:
+      --flr
+        Function level reset
+
+      --vfflr
+        Perform VF function level reset from PF
+
+   Either of:
+      --show-ecc-state
+        Display ecc's state
+
+      --set-ecc-state <[0, 1]>
+        Enable/disable ecc
+            ecc state: 0(disable) 1(enable)
+        Note: The device must be specified by -i, --index.
+
+   Either of:
+      -u <bin>,  --vbios-upgrade <bin>
+        Upgrade vbios for all devices
+        Use -U/--force-vbios-upgrade to update specified devices
+            Usage: mx-smi -u ./mxvbios-xxx.bin -t 90
+                   mx-smi -u ./mxvbios-xxx.bin # default time limit is 60s
+
+      -U <bin>,  --force-vbios-upgrade <bin>
+        Force upgrade vbios
+            Usage: mx-smi -U ./mxvbios-xxx.bin -t 90
+                   mx-smi -U ./mxvbios-xxx.bin # default time limit is 60s
+
+   Either of:
+      --set-dpm-max <DPM IP,DPM level>
+        Set dpm IP max performance level
+            format: <DPM IP>,<DPM level>; (e.g. "mc,1")
+                DPM IP: <xcore|mc|soc|dnoc|vpue|vpud|ccx>
+                DPM level: get from cmd: mx-smi --show-dpm all
+        Note: The device must be specified by -i, --index.
+              (N-class device is not support)
+
+      --show-dpm-max
+        Display dpm max performance level (N-class device is not support)
+
+   Either of:
+      --show-power-mode
+        Display power mode
+
+      --set-power-mode <[0, 1]>
+        Set power mode
+            Power mode: 0(Normal) 1(High)
+        Note: The device must be specified by -i, --index.
+
+   Either of:
+      --show-fw-loglevel
+        Display firmware's loglevel
+
+      --set-fw-loglevel <ipName,loglevel>
+        Set firmware's loglevel
+            format: <ipName>,<loglevel>; (e.g. "smp0,4")
+            ipName: <all|smp0|smp1|ccx0|ccx1|ccx2>
+            loglevel: <5:debug|4:info|3:warn|2:error|1:fatal|0:none>
+
+   --,  --ignore_rest
+     Ignores the rest of the labeled arguments following this flag.
+
+   -v,  --version
+     Displays version information and exits.
+
+   -h,  --help
+     Displays usage information and exits.
+
+   subsystem <ras|topo|dmon|om|vm>
+     The desired subsystem to be accessed.
+     
+     Subsystems available:
+       ras     Device RAS management [mx-smi ras -h for more info]
+       topo    Display device topology [mx-smi topo -h for more info]
+       dmon    Display device stats in scrolling format
+               [mx-smi dmon -h for more info]
+       om      Display optical module info
+               [mx-smi om -h for more info]
+       vm      Device virtualization management
+               [mx-smi vm -h for more info]
+
+   MetaX GPU System Management Interface
+
+(base) ubuntu@10-7-20-142:~$ mx-smi
+mx-smi  version: 2.1.10
+
+=================== MetaX System Management Interface Log ===================
+Timestamp                                         : Mon Sep  1 17:34:09 2025
+
+Attached GPUs                                     : 8
++---------------------------------------------------------------------------------+
+| MX-SMI 2.1.10                       Kernel Mode Driver Version: 2.11.11         |
+| MACA Version: 2.32.0.6              BIOS Version: 1.20.3.0                      |
+|------------------------------------+---------------------+----------------------+
+| GPU         NAME                   | Bus-id              | GPU-Util             |
+| Temp        Pwr:Usage/Cap          | Memory-Usage        |                      |
+|====================================+=====================+======================|
+| 0           MetaX C500             | 0000:08:00.0        | 0%                   |
+| 41C         73W / 350W             | 56359/65536 MiB     |                      |
++------------------------------------+---------------------+----------------------+
+| 1           MetaX C500             | 0000:09:00.0        | 0%                   |
+| 40C         69W / 350W             | 56679/65536 MiB     |                      |
++------------------------------------+---------------------+----------------------+
+| 2           MetaX C500             | 0000:0e:00.0        | 0%                   |
+| 40C         70W / 350W             | 56679/65536 MiB     |                      |
++------------------------------------+---------------------+----------------------+
+| 3           MetaX C500             | 0000:11:00.0        | 0%                   |
+| 41C         80W / 350W             | 56359/65536 MiB     |                      |
++------------------------------------+---------------------+----------------------+
+| 4           MetaX C500             | 0000:32:00.0        | 0%                   |
+| 39C         68W / 350W             | 56359/65536 MiB     |                      |
++------------------------------------+---------------------+----------------------+
+| 5           MetaX C500             | 0000:38:00.0        | 0%                   |
+| 40C         71W / 350W             | 56679/65536 MiB     |                      |
++------------------------------------+---------------------+----------------------+
+| 6           MetaX C500             | 0000:3b:00.0        | 0%                   |
+| 39C         70W / 350W             | 56679/65536 MiB     |                      |
++------------------------------------+---------------------+----------------------+
+| 7           MetaX C500             | 0000:3c:00.0        | 0%                   |
+| 39C         71W / 350W             | 56359/65536 MiB     |                      |
++------------------------------------+---------------------+----------------------+
+
++---------------------------------------------------------------------------------+
+| Process:                                                                        |
+|  GPU                    PID         Process Name                 GPU Memory     |
+|                                                                  Usage(MiB)     |
+|=================================================================================|
+|  0                  3062805         python3.10                   55488          |
+|  1                  3062824         python3.10                   55808          |
+|  2                  3062845         python3.10                   55808          |
+|  3                  3062871         python3.10                   55488          |
+|  4                  3062895         python3.10                   55488          |
+|  5                  3062919         python3.10                   55808          |
+|  6                  3062946         python3.10                   55808          |
+|  7                  3062972         python3.10                   55488          |
++---------------------------------------------------------------------------------+
+
+End of Log
+(base) ubuntu@10-7-20-142:~$ # Look for batch size settings in the logs
+docker logs vllm | grep -i "max_batch_size\|batch_size"
+INFO 09-01 11:37:12 [api_server.py:982] args: Namespace(subparser='serve', model_tag='/models/Llama-3.3-70B-Instruct/', config='', host=None, port=8000, uvicorn_log_level='info', disable_uvicorn_access_log=False, allow_credentials=False, allowed_origins=['*'], allowed_methods=['*'], allowed_headers=['*'], api_key=None, lora_modules=None, prompt_adapters=None, chat_template=None, chat_template_content_format='auto', response_role='assistant', ssl_keyfile=None, ssl_certfile=None, ssl_ca_certs=None, enable_ssl_refresh=False, ssl_cert_reqs=0, root_path=None, middleware=[], return_tokens_as_token_ids=False, disable_frontend_multiprocessing=False, enable_request_id_headers=False, enable_auto_tool_choice=False, tool_call_parser=None, tool_parser_plugin='', model='/models/Llama-3.3-70B-Instruct/', task='auto', tokenizer=None, hf_config_path=None, skip_tokenizer_init=False, revision=None, code_revision=None, tokenizer_revision=None, tokenizer_mode='auto', trust_remote_code=False, allowed_local_media_path=None, download_dir=None, load_format='auto', config_format=<ConfigFormat.AUTO: 'auto'>, dtype='auto', kv_cache_dtype='auto', max_model_len=None, guided_decoding_backend='xgrammar', logits_processor_pattern=None, model_impl='auto', distributed_executor_backend=None, pipeline_parallel_size=1, tensor_parallel_size=8, enable_expert_parallel=False, max_parallel_loading_workers=None, ray_workers_use_nsight=False, block_size=None, enable_prefix_caching=None, disable_sliding_window=False, use_v2_block_manager=True, num_lookahead_slots=0, seed=None, swap_space=4, cpu_offload_gb=0, gpu_memory_utilization=0.9, num_gpu_blocks_override=None, max_num_batched_tokens=None, max_num_partial_prefills=1, max_long_partial_prefills=1, long_prefill_token_threshold=0, max_num_seqs=None, max_logprobs=20, disable_log_stats=False, quantization=None, rope_scaling=None, rope_theta=None, hf_overrides=None, enforce_eager=False, max_seq_len_to_capture=8192, disable_custom_all_reduce=True, tokenizer_pool_size=0, tokenizer_pool_type='ray', tokenizer_pool_extra_config=None, limit_mm_per_prompt=None, mm_processor_kwargs=None, disable_mm_preprocessor_cache=False, enable_lora=False, enable_lora_bias=False, max_loras=1, max_lora_rank=16, lora_extra_vocab_size=256, lora_dtype='auto', long_lora_scaling_factors=None, max_cpu_loras=None, fully_sharded_loras=False, enable_prompt_adapter=False, max_prompt_adapters=1, max_prompt_adapter_token=0, device='auto', num_scheduler_steps=1, use_tqdm_on_load=True, multi_step_stream_outputs=True, scheduler_delay_factor=0.0, enable_chunked_prefill=None, speculative_config=None, speculative_model=None, speculative_model_quantization=None, num_speculative_tokens=None, speculative_disable_mqa_scorer=False, speculative_draft_tensor_parallel_size=None, speculative_max_model_len=None, speculative_disable_by_batch_size=None, ngram_prompt_lookup_max=None, ngram_prompt_lookup_min=None, spec_decoding_acceptance_method='rejection_sampler', typical_acceptance_sampler_posterior_threshold=None, typical_acceptance_sampler_posterior_alpha=None, disable_logprobs_during_spec_decoding=None, model_loader_extra_config=None, ignore_patterns=[], preemption_mode=None, served_model_name=None, qlora_adapter_name_or_path=None, show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, disable_async_output_proc=False, scheduling_policy='fcfs', scheduler_cls='vllm.core.scheduler.Scheduler', override_neuron_config=None, override_pooler_config=None, compilation_config=None, kv_transfer_config=None, worker_cls='auto', worker_extension_cls='', generation_config='auto', override_generation_config=None, enable_sleep_mode=False, calculate_kv_scales=False, additional_config=None, enable_reasoning=False, reasoning_parser=None, disable_cascade_attn=False, disable_log_requests=False, max_log_len=None, disable_fastapi_docs=False, enable_prompt_tokens_details=False, enable_server_load_tracking=False, dispatch_function=<function ServeSubcommand.cmd at 0x7f71e6299f30>)
+(base) ubuntu@10-7-20-142:~$ docker logs vllm | grep -A 5 -B 5 "max_num_batched_tokens\|max_num_seqs\|max_batch_size"
+  warnings.warn(_BETA_TRANSFORMS_WARNING)
+/opt/conda/lib/python3.10/site-packages/torchvision/transforms/v2/__init__.py:54: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+  warnings.warn(_BETA_TRANSFORMS_WARNING)
+INFO 09-01 11:37:11 [__init__.py:243] Automatically detected platform cuda.
+INFO 09-01 11:37:12 [api_server.py:981] vLLM API server version 0.8.2
+INFO 09-01 11:37:12 [api_server.py:982] args: Namespace(subparser='serve', model_tag='/models/Llama-3.3-70B-Instruct/', config='', host=None, port=8000, uvicorn_log_level='info', disable_uvicorn_access_log=False, allow_credentials=False, allowed_origins=['*'], allowed_methods=['*'], allowed_headers=['*'], api_key=None, lora_modules=None, prompt_adapters=None, chat_template=None, chat_template_content_format='auto', response_role='assistant', ssl_keyfile=None, ssl_certfile=None, ssl_ca_certs=None, enable_ssl_refresh=False, ssl_cert_reqs=0, root_path=None, middleware=[], return_tokens_as_token_ids=False, disable_frontend_multiprocessing=False, enable_request_id_headers=False, enable_auto_tool_choice=False, tool_call_parser=None, tool_parser_plugin='', model='/models/Llama-3.3-70B-Instruct/', task='auto', tokenizer=None, hf_config_path=None, skip_tokenizer_init=False, revision=None, code_revision=None, tokenizer_revision=None, tokenizer_mode='auto', trust_remote_code=False, allowed_local_media_path=None, download_dir=None, load_format='auto', config_format=<ConfigFormat.AUTO: 'auto'>, dtype='auto', kv_cache_dtype='auto', max_model_len=None, guided_decoding_backend='xgrammar', logits_processor_pattern=None, model_impl='auto', distributed_executor_backend=None, pipeline_parallel_size=1, tensor_parallel_size=8, enable_expert_parallel=False, max_parallel_loading_workers=None, ray_workers_use_nsight=False, block_size=None, enable_prefix_caching=None, disable_sliding_window=False, use_v2_block_manager=True, num_lookahead_slots=0, seed=None, swap_space=4, cpu_offload_gb=0, gpu_memory_utilization=0.9, num_gpu_blocks_override=None, max_num_batched_tokens=None, max_num_partial_prefills=1, max_long_partial_prefills=1, long_prefill_token_threshold=0, max_num_seqs=None, max_logprobs=20, disable_log_stats=False, quantization=None, rope_scaling=None, rope_theta=None, hf_overrides=None, enforce_eager=False, max_seq_len_to_capture=8192, disable_custom_all_reduce=True, tokenizer_pool_size=0, tokenizer_pool_type='ray', tokenizer_pool_extra_config=None, limit_mm_per_prompt=None, mm_processor_kwargs=None, disable_mm_preprocessor_cache=False, enable_lora=False, enable_lora_bias=False, max_loras=1, max_lora_rank=16, lora_extra_vocab_size=256, lora_dtype='auto', long_lora_scaling_factors=None, max_cpu_loras=None, fully_sharded_loras=False, enable_prompt_adapter=False, max_prompt_adapters=1, max_prompt_adapter_token=0, device='auto', num_scheduler_steps=1, use_tqdm_on_load=True, multi_step_stream_outputs=True, scheduler_delay_factor=0.0, enable_chunked_prefill=None, speculative_config=None, speculative_model=None, speculative_model_quantization=None, num_speculative_tokens=None, speculative_disable_mqa_scorer=False, speculative_draft_tensor_parallel_size=None, speculative_max_model_len=None, speculative_disable_by_batch_size=None, ngram_prompt_lookup_max=None, ngram_prompt_lookup_min=None, spec_decoding_acceptance_method='rejection_sampler', typical_acceptance_sampler_posterior_threshold=None, typical_acceptance_sampler_posterior_alpha=None, disable_logprobs_during_spec_decoding=None, model_loader_extra_config=None, ignore_patterns=[], preemption_mode=None, served_model_name=None, qlora_adapter_name_or_path=None, show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, disable_async_output_proc=False, scheduling_policy='fcfs', scheduler_cls='vllm.core.scheduler.Scheduler', override_neuron_config=None, override_pooler_config=None, compilation_config=None, kv_transfer_config=None, worker_cls='auto', worker_extension_cls='', generation_config='auto', override_generation_config=None, enable_sleep_mode=False, calculate_kv_scales=False, additional_config=None, enable_reasoning=False, reasoning_parser=None, disable_cascade_attn=False, disable_log_requests=False, max_log_len=None, disable_fastapi_docs=False, enable_prompt_tokens_details=False, enable_server_load_tracking=False, dispatch_function=<function ServeSubcommand.cmd at 0x7f71e6299f30>)
+INFO 09-01 11:37:19 [config.py:585] This model supports multiple tasks: {'classify', 'reward', 'generate', 'embed', 'score'}. Defaulting to 'generate'.
+INFO 09-01 11:37:23 [config.py:1521] Defaulting to use mp for distributed inference
+INFO 09-01 11:37:23 [config.py:1699] Chunked prefill is enabled with max_num_batched_tokens=2048.
+/opt/conda/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'libjpeg.so.62: cannot open shared object file: No such file or directory'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/opt/conda/lib/python3.10/site-packages/torchvision/datapoints/__init__.py:12: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+  warnings.warn(_BETA_TRANSFORMS_WARNING)
+/opt/conda/lib/python3.10/site-packages/torchvision/transforms/v2/__init__.py:54: UserWarning: The torchvision.datapoints and torchvision.transforms.v2 namespaces are still Beta. While we do not expect major breaking changes, some APIs may still change according to user feedback. Please submit any feedback you may have in this issue: https://github.com/pytorch/vision/issues/6753, and you can also check out https://github.com/pytorch/vision/issues/7319 to learn more about the APIs that we suspect might involve future changes. You can silence this warning by calling torchvision.disable_beta_transforms_warning().
+(base) ubuntu@10-7-20-142:~$ Connection to 154.81.14.22 closed by remote host.
+Connection to 154.81.14.22 closed.
